@@ -5,7 +5,7 @@ Actions describe the fact that something happened, but don't specify how the app
 This is the job of reducers.
 
 ```js
-const foo = (state='foo', action) => {
+const foo = (state=, action) => {
   if (action.type === SET_FOO) {
     return action.foo // set new state
   }

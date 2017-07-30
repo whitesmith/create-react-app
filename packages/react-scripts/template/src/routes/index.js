@@ -14,7 +14,7 @@ const routes = (
     <ConnectedRouter history={history}>
       <App>
         <Switch>
-          <Route path={ROOT_PATH} component={props => 'Hello'}/>
+          <Route path={ROOT_PATH} component={props => <div>Hello</div>}/>
         </Switch>
       </App>
     </ConnectedRouter>

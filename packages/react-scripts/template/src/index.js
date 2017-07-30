@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import routes from './routes';
-import './styleguides/index.scss';
+import registerServiceWorker from './registerServiceWorker';
+import './stylesheets/index.css';
 
 ReactDOM.render(
   routes,
