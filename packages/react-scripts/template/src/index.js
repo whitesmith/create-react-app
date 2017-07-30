@@ -1,8 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import routes from './routes';
+import './styleguides/index.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  routes,
+  document.getElementById('root')
+);
 registerServiceWorker();
+
+if (module.hot) {
+  module.hot.accept('./routes', () => {
+    const NextRoutes = require('./routes').default
+    ReactDOM.render(
+      NextRoutes,
+      document.getElementById('root')
+    )
+  })
+}
