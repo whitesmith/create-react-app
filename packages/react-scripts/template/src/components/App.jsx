@@ -8,9 +8,7 @@ const App = (props) => (
       <img src={logo} className="App-logo" alt="logo" />
       <h2>Welcome to React</h2>
     </div>
-    <p className="App-intro">
-      { props.children }
-    </p>
+    { props.children }
   </div>
 )
 

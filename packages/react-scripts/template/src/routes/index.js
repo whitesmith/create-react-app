@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { Switch, Route } from 'react-router-dom';
 import store from '../store';
-import history from '../store/history';
+import history from '../history';
 // My components
 import App from '../containers/App';
 
