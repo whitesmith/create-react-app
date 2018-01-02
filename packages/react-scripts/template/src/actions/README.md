@@ -23,8 +23,10 @@ Thunks are action creators that return a function instead of an action.
 The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met.
 
 ```js
-const getFoo = (url) => (dispatch, getState) => {
+const trySetFoo = foo => (dispatch, getState) => {
   const state = getState()
-  fetch(url).then(response => dispatch(setFoo(response.json)))
+  if (state.canSetFoo) {
+    dispatch(setFoo(foo))
+  }
 }
 ```

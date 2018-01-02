@@ -1,10 +1,12 @@
 // Actions represent the facts about “what happened” and the reducers update the state according to those actions.
 // The Store is the object that brings them together.
-import { compose, createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import history from './history';
-import * as reducers from './reducers';
-import { routerMiddleware } from './middlewares';
+import { compose, createStore, combineReducers, applyMiddleware } from 'redux'
+import { createEpicMiddleware } from 'redux-observable'
+import thunk from 'redux-thunk'
+import history from './history'
+import * as reducers from './reducers'
+import { routerMiddleware } from './middlewares'
+import { rootEpic } from './epics'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,6 +19,7 @@ const store = createStore(
     // composes a store creator to return a new, enhanced store creator
     applyMiddleware(
       routerMiddleware(history),
+      createEpicMiddleware(rootEpic),
       thunk
     )
   )
